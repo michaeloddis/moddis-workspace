@@ -1,0 +1,8 @@
+{
+  "name": "moddis-portfolio",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/moddis-portfolio/src",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}
