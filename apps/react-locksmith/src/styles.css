@@ -1,0 +1,269 @@
+:root {
+  /* Colors */
+  --rsl-colors-white: #FFFFFF;
+  --rsl-colors-background-base: #22262A;
+  --rsl-colors-background-alt: #2C3136;
+  --rsl-colors-border-base: #353B41;
+  --rsl-colors-border-lock-item-button: #4A5158;
+
+  /* Font Family */
+  --rsl-font-family-base: 'IBM Plex Sans', sans-serif;
+  --rsl-font-family-title: 'Inter', sans-serif;
+
+  /* Font Sizes */
+  --rsl-fontSizes-base: 1rem;
+  --rsl-fontSizes-12: 0.75rem;
+  --rsl-fontSizes-16: 1rem;
+  --rsl-fontSizes-20: 1.25rem;
+  --rsl-fontSizes-24: 1.5rem;
+  --rsl-fontSizes-81: 5.0625rem;
+
+  /* Spacing */
+  --rsl-spacing-0: 0px;
+  --rsl-spacing-1: 1px;
+  --rsl-spacing-4: 4px;
+  --rsl-spacing-8: 8px;
+  --rsl-spacing-10: 10px;
+  --rsl-spacing-12: 12px;
+  --rsl-spacing-16: 16px;
+  --rsl-spacing-18: 18px;
+  --rsl-spacing-24: 24px;
+  --rsl-spacing-32: 32px;
+
+  /* Sizing */
+  --rsl-sizes-0: 0px;
+  --rsl-sizes-1: 1px;
+  --rsl-sizes-4: 4px;
+  --rsl-sizes-8: 8px;
+  --rsl-sizes-10: 10px;
+  --rsl-sizes-12: 12px;
+  --rsl-sizes-16: 16px;
+  --rsl-sizes-18: 18px;
+  --rsl-sizes-24: 24px;
+  --rsl-sizes-32: 32px;
+
+  /* zIndex */
+  --rsl-zIndex-app-background: 1;
+  --rsl-zIndex-code-generator: 2;
+
+  /* System */
+  --rsl-colors-background-page: var(--rsl-colors-background-base);
+  --rsl-colors-background-button: var(--rsl-colors-background-base);
+
+  /* Digit */
+  --rsl-colors-border-digit-hover: var(--rsl-colors-white);
+  --rsl-colors-border-digit: var(--rsl-colors-border-base);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--rsl-colors-background-page);
+  font-family: var(--rsl-font-family-base);
+  color: var(--rsl-colors-white);
+  min-width: 1024px;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;  
+}
+
+.app__background {
+  position: absolute;
+  width: 90%;
+  height: 676px;
+  top: -300px;
+  /* background: radial-gradient(55.41% 55.41% at 50% 44.59%, rgba(0, 117, 255, 0.36) 0%, rgba(234, 69, 118, 0) 100%); */
+  /* This colors looked off trying to use css above, so I just used a background image. */
+  background-image: url('./assets/background.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: var(--rsl-zIndex-app-background);
+}
+
+/* Code Generate */
+
+.code-generator-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  z-index: var(--rsl-zIndex-code-generator);
+}
+
+.code-generator-button {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: var(--rsl-spacing-18) var(--rsl-spacing-24);
+  gap: var(--rsl-spacing-24);
+  cursor: pointer;
+
+  width: 474px;
+  height: 60px;
+
+  background: linear-gradient(132.26deg, #EA8044 8.76%, #EA5A63 42.38%, #EA4476 72.96%);
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border: none;
+
+  font-family: var(--rsl-font-family-title);
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--rsl-fontSizes-20);
+  line-height: var(--rsl-fontSizes-24);
+
+  color: var(--rsl-colors-white);
+}
+
+.code-generator-button:hover {
+  border: 2px solid var(--rsl-colors-white);
+}
+
+/* Lock */
+
+.lock {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  gap: 60px;
+  margin-left: 25px;
+}
+
+.lock-item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--rsl-spacing-10);
+}
+
+.lock-input-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--rsl-spacing-10);
+  
+}
+
+.lock-input__label {
+  font-weight: 'Inter';
+  font-size: var(--rsl-fontSizes-12);
+}
+
+.lock-item-actions {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--rsl-spacing-10);
+}
+
+.lock-item-button {
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background: var(--rsl-colors-background-page);
+  border: 1px solid var(--rsl-colors-border-lock-item-button);
+  box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.05), 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  width: var(--rsl-sizes-24);
+  height: var(--rsl-sizes-24);
+  color: var(--rsl-colors-white);
+  cursor: pointer;
+}
+
+.lock-item-button:hover {
+  border: 1px solid var(--rsl-colors-white);
+}
+
+.lock-item-button svg {
+  width: 0.6rem;
+  height: 0.6rem;
+  pointer-events: none;
+}
+
+.lock-input {
+  box-sizing: border-box;
+  display: flex;
+  padding: 0px 5px;
+  width: 92px;
+  height: 110px;
+  background: var(--rsl-colors-background-alt);
+  border: 1px solid var(--rsl-colors-border-base);
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+
+  text-align: center;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--rsl-fontSizes-81);
+  line-height: 105px;
+  outline: none;
+}
+
+.lock-input:hover {
+  border: 2px solid var(--rsl-colors-white);
+}
+
+.lock-input:focus-within {
+  border: 2px solid var(--rsl-colors-white);
+}
+
+/* Code */
+
+.code {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  padding-top: 50px;
+  gap: 36px;
+  cursor: default;
+}
+
+.code-item {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5px;
+  gap: 10px;
+  width: 92px;
+  height: 110px;
+  background: var(--rsl-colors-background-base);
+  border: 1px solid var(--rsl-colors-border-digit);
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--rsl-fontSizes-81);
+  line-height: 105px;
+}
+
+.code-item__divider  {
+  position: absolute;
+  top: var(--rsl-spacing-12);
+  border: 1px solid var(--rsl-colors-background-base);
+  width: 100%;
+}
+
